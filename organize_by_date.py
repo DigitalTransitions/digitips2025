@@ -26,7 +26,7 @@ def extract_date(filename):
     - Allow dashes instead of underscores
     - Allow any number of characters for the newspaper abbreviation
     
-    Returns date string in format YYYY-MM-DD or None if no match
+    Returns date string in format YYYY_MM_DD or None if no match
     """
     # New flexible pattern
     pattern = r'([A-Za-z]+)[_-](\d{4})[_-](\d{1,2})[_-](\d{1,2})[_-]'
@@ -36,7 +36,7 @@ def extract_date(filename):
         # Zero-pad month and day to ensure consistent format
         month = month.zfill(2)
         day = day.zfill(2)
-        return f"{year}-{month}-{day}", is_standard_format(abbr, filename)
+        return f"{year}_{month}_{day}", is_standard_format(abbr, filename)
     return None, False
 
 
